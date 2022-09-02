@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.4.0",
+    "@heroicons/react": "^2.0.10",
     "@hookform/error-message": "^2.0.0",
     "@hookform/resolvers": "^2.9.7",
     "@reduxjs/toolkit": "^1.6.2",

@@ -5,11 +5,9 @@ export interface Props {
   control: Control<any>;
   name: string;
   type: string;
-  errors?: any;
-  placeholder?: string;
 }
 
-export const InputField = ({ control, name, type, errors, placeholder }: Props) => {
+export const CheckBoxField = ({ control, name, type }: Props) => {
   return (
     <Controller
       name={name}
@@ -17,9 +15,8 @@ export const InputField = ({ control, name, type, errors, placeholder }: Props) 
       render={({ field }) => (
         <>
           <div className=''>
-            <input {...field} type={type} name={name} placeholder={placeholder} className='w-full p-3 border' />
+            <input {...field} type={type} name={name} className='w-4 h-4' />
           </div>
-          <div className='text-red-600 text-xs font-semibold'>{errors[name]?.message}</div>
         </>
       )}
     />

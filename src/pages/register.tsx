@@ -1,14 +1,21 @@
 import { Loading } from 'common/Loading';
 import RegisterForm from 'components/auth/RegisterForm';
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import { authRegister } from 'redux/slice/authSlice';
 
 const Register = () => {
   const dispatch = useAppDispatch();
-  const {loading} = useAppSelector(state => state.auth);
+  const history = useHistory();
+  
+  const { loading, currentUser } = useAppSelector((state) => state.auth);
 
-  const handleSubmit = async (values:any) => {
+  useEffect(() => {
+    if (currentUser) return history.replace('/');
+  }, [currentUser, history]);
+
+  const handleSubmit = (values:any) => {
     dispatch(authRegister(values));
   };
 
@@ -16,7 +23,7 @@ const Register = () => {
     <div className='flex items-center justify-center min-h-[calc(100vh-6rem)]'>
         <div className='container max-w-md p-5 shadow-sm'>
             <h2 className='my-3 text-2xl font-semibold tracking-widest text-center uppercase'>
-                Martin
+              MARTIN TRAN
             </h2>
             <RegisterForm onSubmit={handleSubmit} />
             <div>
