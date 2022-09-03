@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useAppSelector } from 'redux/hooks';
-import Nav from './Nav';
-import NavAfLogin from './NavAfLogin';
+import { Nav } from './Nav';
+import { NavAfLogin } from './NavAfLogin';
 
-const Header = () => {
+export const Header = () => {
   const {  currentUser } = useAppSelector((state) => state.auth);
 
   return (
@@ -22,5 +22,3 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header

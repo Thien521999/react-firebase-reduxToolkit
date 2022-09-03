@@ -1,6 +1,8 @@
+import * as FireAuth from 'firebase/auth';
+
 export interface IParams {
-  page: string
-  id: string
+  page: string;
+  id: string;
 }
 
 export interface IRegister {
@@ -18,4 +20,15 @@ export interface ILogin {
 
 export interface IForgot {
   email: string;
+}
+
+export interface IAuth extends FireAuth.User {}
+
+export interface IProfile {
+  fullname: string;
+  emailContact: string;
+  phone: string;
+  website: string;
+  address: string;
+  about: string;
 }

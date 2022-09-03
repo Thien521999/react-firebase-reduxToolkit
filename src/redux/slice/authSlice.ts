@@ -7,10 +7,10 @@ import {
   registerApi,
   signOutApi,
 } from 'redux/actions/authAction';
-import { ILogin, IRegister } from 'types';
+import { IAuth, ILogin, IRegister } from 'types';
 
 export interface AuthState {
-  currentUser?: any;
+  currentUser?: IAuth;
   loading: boolean;
 }
 

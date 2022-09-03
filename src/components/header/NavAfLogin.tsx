@@ -1,10 +1,9 @@
 import { UserCircleIcon } from '@heroicons/react/24/solid'
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'redux/hooks'
 import { authLogout } from 'redux/slice/authSlice'
 
-const NavAfLogin = () => {
+export const NavAfLogin = () => {
   const { currentUser } = useAppSelector(state => state.auth)
   const dispatch = useAppDispatch()
 
@@ -14,7 +13,7 @@ const NavAfLogin = () => {
           <div className='w-10 h-10 overflow-hidden rounded-full'>
             {
               currentUser?.photoURL
-              ? <img src={currentUser.photoURL} alt="avatar"
+              ? <img src={currentUser?.photoURL} alt="avatar"
                 className='object-cover w-full h-full' />
               : <UserCircleIcon className='w-full h-full' />
             }
@@ -29,5 +28,3 @@ const NavAfLogin = () => {
     </div>
   )
 }
-
-export default NavAfLogin
